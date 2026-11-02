@@ -1,1 +1,2 @@
 rootProject.name = 'githubActionsTest'
+include 'service1', 'service2', 'service3'

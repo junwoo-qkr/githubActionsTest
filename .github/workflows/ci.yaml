@@ -1,0 +1,27 @@
+name: PR CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [service1, service2, service3]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Test and build
+        run: bash ./gradlew :${{ matrix.service }}:test :${{ matrix.service }}:bootJar --no-daemon
