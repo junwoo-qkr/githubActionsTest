@@ -8,7 +8,7 @@ class Service1ApplicationTests {
 
     @Test
     void contextLoads() {
-        throw new AssertionError("CI failure test");
+//        throw new AssertionError("CI failure test");
     }
 
 }
